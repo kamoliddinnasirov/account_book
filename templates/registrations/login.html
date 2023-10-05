@@ -8,10 +8,14 @@
     Please try again.
 </p>
 {% else %}
-<p>Please, use the following form to log-in:</p>
+<p>
+    Please, use the following form to log-in
+    <a href="{% url 'register'%}">Register here</a>
+</p>
+
 {% endif %}
 <div class="login-form">
-    <form action="{% url 'login' %}" method="post">
+    <form action="{% url 'login' %}" method="POST">
         {{ form.as_p }}
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}" />
